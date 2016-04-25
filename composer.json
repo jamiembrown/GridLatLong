@@ -1,0 +1,21 @@
+{
+    "name": "jamiembrown/GridLatLong",
+    "description": "Converts any latitude and longitude to a unique numerical global grid reference. Useful for quick lookups and indexing in a database like MySQL using standard equals or IN syntax.",
+    "license": "MIT",
+    "keywords": ["grid","latlng","latitude","longitude","geospatial"],
+    "authors": [
+        {
+            "name": "Jamie M Brown",
+            "email": "name@domain.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "JamieMBrown\\GridLatLong\\": "src"
+        }
+    }
+}
