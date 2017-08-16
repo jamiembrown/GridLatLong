@@ -53,15 +53,17 @@ class GridLatLong
 
         // Work out the bounding box max and min in our internal grid reference.
 
-        $bounding_north_west = $this->getInternalGridReference($this->addLatitudeLongitude($latitude, $longitude, 315, $radius));
-        $bounding_south_east = $this->getInternalGridReference($this->addLatitudeLongitude($latitude, $longitude, 135, $radius));
+        $bounding_north = $this->getInternalGridReference($this->addLatitudeLongitude($latitude, $longitude, 0, $radius));
+        $bounding_east = $this->getInternalGridReference($this->addLatitudeLongitude($latitude, $longitude, 90, $radius));
+        $bounding_south = $this->getInternalGridReference($this->addLatitudeLongitude($latitude, $longitude, 180, $radius));
+        $bounding_west = $this->getInternalGridReference($this->addLatitudeLongitude($latitude, $longitude, 270, $radius));
 
         // Extract all combinations of the grid reference, using cantor pairing to combine them.
 
         $references = array();
 
-        for ($i = $bounding_south_east[0]; $i <= $bounding_north_west[0]; $i++) {
-            for ($a = $bounding_north_west[1]; $a <= $bounding_south_east[1]; $a++) {
+        for ($i = $bounding_south[0]; $i <= $bounding_north[0]; $i++) {
+            for ($a = $bounding_west[1]; $a <= $bounding_east[1]; $a++) {
                 $references[] = (($i + $a) * ($i + $a + 1)) / 2 + $a;
             }
 
